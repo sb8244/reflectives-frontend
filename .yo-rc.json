@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "reflectives",
+    "style": "scss",
+    "postcss": false
+  }
+}
