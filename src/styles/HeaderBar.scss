@@ -1,0 +1,11 @@
+$logo-size: 60px;
+
+.header--wrapper {
+  position: absolute;
+  height: $logo-size;
+  padding: 30px;
+}
+
+.header--logo {
+  height: $logo-size;
+}

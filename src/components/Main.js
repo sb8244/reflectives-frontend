@@ -1,13 +1,14 @@
 require('normalize.css');
-require('styles/App.css');
+require('styles/App.scss');
 
 import React from 'react';
-
+import HeaderBarComponent from './HeaderBarComponent';
 
 class AppComponent extends React.Component {
   render() {
     return (
-      <div>
+      <div className="app">
+        <HeaderBarComponent/>
       </div>
     );
   }
