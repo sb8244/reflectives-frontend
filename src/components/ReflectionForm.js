@@ -5,15 +5,15 @@ import React, { PropTypes } from 'react';
 require('styles//ReflectionForm.scss');
 
 import ThemesInputComponent from './reflection/ThemesInputComponent';
+import ThemesList from './reflection/ThemesList';
 
 let ReflectionFormComponent = (props) => (
   <div className="reflection--wrapper">
-    <ThemesInputComponent />
-    { props.themes.items.map(item => {
-      return (
-        <div>{item}</div>
-      )
-    }) }
+    <div>
+      <h2 className="reflection--header">What themes from the last week do you want to reflect on?</h2>
+      <ThemesInputComponent />
+      <ThemesList themes={props.themes.items} />
+    </div>
   </div>
 );
 

@@ -6,6 +6,7 @@ require('styles/reflection/ThemesInput.scss');
 
 let ThemesInputComponent = (props) => (
   <div className="theme--input">
+    { JSON.stringify(props) }
   </div>
 );
 

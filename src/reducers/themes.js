@@ -16,7 +16,7 @@ module.exports = function(state = initialState, action) {
     case 'ADD_THEME': {
       nextState.items.push(action.theme);
       return nextState;
-    } break;
+    }
 
     default: {
       /* Return original state if no actions were consumed. */
