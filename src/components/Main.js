@@ -8,7 +8,12 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="app">
-        <HeaderBarComponent/>
+        <div className="row">
+          <div className="small-1">
+            <HeaderBarComponent />
+          </div>
+          <div className="columns">Rest</div>
+        </div>
       </div>
     );
   }

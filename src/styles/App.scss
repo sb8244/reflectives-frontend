@@ -1,2 +1,6 @@
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything(true);
+
+.app {
+  padding-top: 30px;
+}
