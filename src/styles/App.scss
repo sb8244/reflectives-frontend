@@ -12,3 +12,8 @@ html, body {
 body {
   border-top: 5px solid #333;
 }
+
+ul.unstyled {
+  list-style: none;
+  margin-left: 0;
+}

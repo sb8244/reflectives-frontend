@@ -3,7 +3,7 @@
 import React, { PropTypes } from 'react';
 
 let ThemesList = (props) => (
-  <ul className="reflection-themes--list">
+  <ul className="reflection-themes--list unstyled">
     { props.themes.map((item, index) => mapTheme(item, index, props.removeTheme)) }
   </ul>
 );

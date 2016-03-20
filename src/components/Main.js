@@ -2,7 +2,6 @@ require('normalize.css');
 require('styles/App.scss');
 
 import React from 'react';
-import HeaderBarComponent from './HeaderBarComponent';
 import ReflectionForm from './ReflectionForm';
 
 class AppComponent extends React.Component {

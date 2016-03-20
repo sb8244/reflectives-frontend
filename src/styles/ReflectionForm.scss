@@ -16,3 +16,13 @@
 .reflection-themes--button-wrapper {
   text-align: center;
 }
+
+.reflection-themes--form {
+  input {
+    height: 2.4375rem; // override so that the submit button doesn't push the pixel height
+  }
+
+  .input-group-field {
+    border-right: none !important;
+  }
+}
