@@ -1,19 +1,28 @@
 'use strict';
 
 import React from 'react';
+import {reduxForm} from 'redux-form';
+import addTheme from '../../actions/themes/addTheme';
+import {reset} from 'redux-form';
 
 require('styles/reflection/ThemesInput.scss');
 
-let ThemesInputComponent = () => (
-  <div className="reflection-themes--form">
-    <input type="text" placeholder="Personal health, Professional goals, Event from the week?" />
-  </div>
+function addThemeSubmit(values, dispatch) {
+  dispatch(addTheme(values.theme));
+  dispatch(reset('addTheme'));
+}
+
+let ThemesInputComponent = (props) => (
+  <form className="reflection-themes--form" onSubmit={props.handleSubmit(addThemeSubmit)}>
+    <input type="text" required placeholder="Personal health, Professional goals, Event from the week?" {...props.fields.theme} />
+  </form>
 );
 
-ThemesInputComponent.displayName = 'ReflectionThemesInputComponent';
+ThemesInputComponent = reduxForm({
+  form: 'addTheme',
+  fields: ['theme']
+})(ThemesInputComponent);
 
-// Uncomment properties you need
-// ThemesInputComponent.propTypes = {};
-// ThemesInputComponent.defaultProps = {};
+ThemesInputComponent.displayName = 'ReflectionThemesInputComponent';
 
 export default ThemesInputComponent;
