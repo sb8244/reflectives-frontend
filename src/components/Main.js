@@ -19,7 +19,7 @@ class AppComponent extends React.Component {
             <HeaderBarComponent />
           </div>
           <div className="columns">
-            <ReflectionForm themes={this.props.themes} />
+            <ReflectionForm themes={this.props.themes} actions={this.props.actions} />
           </div>
         </div>
       </div>

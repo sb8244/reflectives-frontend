@@ -18,6 +18,11 @@ module.exports = function(state = initialState, action) {
       return nextState;
     }
 
+    case 'REMOVE_THEME': {
+      nextState.items.splice(action.index, 1);
+      return nextState;
+    }
+
     default: {
       /* Return original state if no actions were consumed. */
       return state;

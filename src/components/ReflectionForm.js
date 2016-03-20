@@ -7,6 +7,10 @@ require('styles//ReflectionForm.scss');
 import ThemesInputComponent from './reflection/ThemesInputComponent';
 import ThemesList from './reflection/ThemesList';
 
+function hasTheme(props) {
+  return props.themes.items.length > 0;
+}
+
 let ReflectionFormComponent = (props) => (
   <div className="reflection--wrapper">
     <div>
@@ -20,11 +24,13 @@ let ReflectionFormComponent = (props) => (
       <h2 className="reflection--header">What themes from the last week do you want to reflect on?</h2>
 
       <div className="medium-8">
-        <ThemesInputComponent />
-        <ThemesList themes={props.themes.items} />
+        <ThemesInputComponent addTheme={props.actions.addTheme} />
+        <ThemesList themes={props.themes.items} removeTheme={props.actions.removeTheme} />
 
         <div className="reflection-themes--button-wrapper">
-          <button className="secondary hollow button">Start Reflection</button>
+          <button className="secondary hollow button" disabled={!hasTheme(props)}>
+            { hasTheme(props) ? 'Start Reflection' : 'Enter Theme to Continue' }
+          </button>
         </div>
       </div>
     </div>

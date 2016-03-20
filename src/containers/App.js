@@ -34,7 +34,10 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actions = { addTheme: require('../actions/themes/addTheme.js') };
+  const actions = {
+    addTheme: require('../actions/themes/addTheme.js'),
+    removeTheme: require('../actions/themes/removeTheme.js')
+  };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
