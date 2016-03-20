@@ -11,8 +11,6 @@ let ReflectionFormComponent = (props) => (
   <div className="reflection--wrapper">
     <div>
       <h2 className="reflection--header">What themes from the last week do you want to reflect on?</h2>
-      <ThemesInputComponent />
-      <ThemesList themes={props.themes.items} />
     </div>
   </div>
 );
