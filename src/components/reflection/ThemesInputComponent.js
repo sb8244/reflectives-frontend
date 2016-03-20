@@ -4,9 +4,9 @@ import React from 'react';
 
 require('styles/reflection/ThemesInput.scss');
 
-let ThemesInputComponent = (props) => (
-  <div className="theme--input">
-    { JSON.stringify(props) }
+let ThemesInputComponent = () => (
+  <div className="reflection-themes--form">
+    <input type="text" placeholder="Personal health, Professional goals, Event from the week?" />
   </div>
 );
 

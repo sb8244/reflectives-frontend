@@ -3,14 +3,17 @@
 import React, { PropTypes } from 'react';
 
 let ThemesList = (props) => (
-  <div>
+  <ul className="reflection-themes--list">
     { props.themes.map((item, index) => mapTheme(item, index)) }
-  </div>
+  </ul>
 );
 
 function mapTheme(theme, index) {
   return (
-    <div key={index}>{theme}</div>
+    <li className="reflection-themes--item" key={index}>
+      { theme }
+      <span className="reflection-themes--item-close">&times;</span>
+    </li>
   );
 }
 

@@ -7,8 +7,8 @@ import ReflectionForm from './ReflectionForm';
 
 class AppComponent extends React.Component {
   componentWillMount() {
-    this.props.actions.addTheme('This is a theme');
-    this.props.actions.addTheme('This is a theme 2');
+    this.props.actions.addTheme('Personal health');
+    this.props.actions.addTheme('Expanding professional development');
   }
 
   render() {
