@@ -24,7 +24,7 @@ let ReflectionFormComponent = (props) => (
 
       <div className="reflection-themes--button-wrapper">
         <button className="secondary hollow button large" disabled={!hasTheme(props)}>
-          { hasTheme(props) ? 'Start Reflection' : 'Enter Theme to Begin Reflection' }
+          { hasTheme(props) ? 'Start Reflection' : 'Enter Themes to Begin Reflection' }
         </button>
       </div>
     </div>
