@@ -7,6 +7,7 @@
  *          you edit them, they are not updated again.
  */
 import { combineReducers } from 'redux';
+import {reducer as formReducer} from 'redux-form';
 /* Populated by react-webpack-redux:reducer */
-const reducers = { themes: require('../reducers/themes.js') };
+const reducers = { themes: require('../reducers/themes.js'), form: formReducer };
 module.exports = combineReducers(reducers);
