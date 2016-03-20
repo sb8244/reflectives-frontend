@@ -14,14 +14,7 @@ class AppComponent extends React.Component {
   render() {
     return (
       <div className="app">
-        <div className="row">
-          <div className="small-1">
-            <HeaderBarComponent />
-          </div>
-          <div className="columns">
-            <ReflectionForm themes={this.props.themes} actions={this.props.actions} />
-          </div>
-        </div>
+        <ReflectionForm themes={this.props.themes} actions={this.props.actions} />
       </div>
     );
   }

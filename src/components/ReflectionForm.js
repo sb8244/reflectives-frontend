@@ -8,8 +8,8 @@ import ThemesInputComponent from './reflection/ThemesInputComponent';
 import ThemesList from './reflection/ThemesList';
 
 let ReflectionFormComponent = (props) => (
-  <div className="reflection--wrapper">
-    <div>
+  <div className="row align-center">
+    <div className="medium-8 large-6 columns">
       <p className="reflection--intro-text">
         You will be guided through a reflection process. Identify your reflection
         themes first, then reflect on each theme individually in a free-form thought process. There is no
@@ -19,15 +19,13 @@ let ReflectionFormComponent = (props) => (
 
       <h2 className="reflection--header">What themes from the last week do you want to reflect on?</h2>
 
-      <div className="medium-8">
-        <ThemesInputComponent />
-        <ThemesList themes={props.themes.items} removeTheme={props.actions.removeTheme} />
+      <ThemesInputComponent />
+      <ThemesList themes={props.themes.items} removeTheme={props.actions.removeTheme} />
 
-        <div className="reflection-themes--button-wrapper">
-          <button className="secondary hollow button" disabled={!hasTheme(props)}>
-            { hasTheme(props) ? 'Start Reflection' : 'Enter Theme to Continue' }
-          </button>
-        </div>
+      <div className="reflection-themes--button-wrapper">
+        <button className="secondary hollow button large" disabled={!hasTheme(props)}>
+          { hasTheme(props) ? 'Start Reflection' : 'Enter Theme to Begin Reflection' }
+        </button>
       </div>
     </div>
   </div>
