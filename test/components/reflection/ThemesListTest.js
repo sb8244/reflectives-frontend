@@ -9,7 +9,7 @@ import createComponent from 'helpers/shallowRenderHelper';
 
 import ThemesList from 'components/reflection/ThemesList.js';
 
-describe.only('ThemesList', () => {
+describe('ThemesList', () => {
   let tree, props, clicks;
 
   beforeEach(() => {

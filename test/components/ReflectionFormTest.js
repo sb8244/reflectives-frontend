@@ -9,14 +9,16 @@ import createComponent from 'helpers/shallowRenderHelper';
 
 import ReflectionForm from 'components//ReflectionForm.js';
 
-describe('ReflectionFormComponent', () => {
+describe('ReflectionForm', () => {
   let component;
 
   beforeEach(() => {
     component = createComponent(ReflectionForm);
   });
 
-  it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('reflectionform-component');
-  });
+  xit('passes themes to a ThemeList');
+  xit('passes removeTheme action to ThemeList');
+  xit('includes a ThemesInputComponent');
+  xit('says "Start Reflection" with themes');
+  xit('says "Enter Themes" without themes');
 });
