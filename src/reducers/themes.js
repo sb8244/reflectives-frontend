@@ -12,14 +12,15 @@ module.exports = function(state = initialState, action) {
   let nextState = Object.assign({}, state);
 
   switch(action.type) {
-
     case 'ADD_THEME': {
-      nextState.items.push(action.theme);
+      nextState.items = [action.theme, ...nextState.items];
       return nextState;
     }
 
     case 'REMOVE_THEME': {
-      nextState.items.splice(action.index, 1);
+      nextState.items = nextState.items.filter(function(el, index) {
+        return index !== action.index;
+      });
       return nextState;
     }
 

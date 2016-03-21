@@ -5,7 +5,7 @@ module.exports = function(initialState) {
   const store = redux.createStore(
     reducers,
     initialState,
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    window.devToolsExtension ? window.devToolsExtension() : undefined
   )
 
   if (module.hot) {
