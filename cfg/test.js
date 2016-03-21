@@ -7,6 +7,7 @@ let baseConfig = require('./base');
 
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
+let webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
@@ -53,6 +54,7 @@ module.exports = {
   plugins: [
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
-    })
+    }),
+    new webpack.IgnorePlugin(/ReactContext/)
   ]
 };

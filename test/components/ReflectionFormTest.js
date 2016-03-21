@@ -7,16 +7,16 @@
 // import TestUtils from 'react-addons-test-utils';
 import createComponent from 'helpers/shallowRenderHelper';
 
-import TestComponent from 'components//TestComponent.js';
+import ReflectionForm from 'components//ReflectionForm.js';
 
-describe('TestComponent', () => {
+describe('ReflectionFormComponent', () => {
   let component;
 
   beforeEach(() => {
-    component = createComponent(TestComponent);
+    component = createComponent(ReflectionForm);
   });
 
   it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('test-component');
+    expect(component.props.className).to.equal('reflectionform-component');
   });
 });
