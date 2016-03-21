@@ -13,7 +13,9 @@ module.exports = function(state = initialState, action) {
 
   switch(action.type) {
     case 'ADD_THEME': {
-      nextState.items = [action.theme, ...nextState.items];
+      if (nextState.items.indexOf(action.theme) === -1) {
+        nextState.items = [action.theme, ...nextState.items];
+      }
       return nextState;
     }
 
