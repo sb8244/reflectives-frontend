@@ -20,7 +20,7 @@ let ReflectionFormComponent = (props) => (
       <h2 className="reflection--header">What themes from the last week do you want to reflect on?</h2>
 
       <ThemesInputComponent />
-      <ThemesList themes={props.themes.items} removeTheme={props.actions.removeTheme} />
+      <ThemesList themes={props.themes.get('items')} removeTheme={props.actions.removeTheme} />
 
       <div className="reflection-themes--button-wrapper">
         <button className="secondary hollow button large" disabled={!hasTheme(props)}>
@@ -37,7 +37,7 @@ ReflectionFormComponent.propTypes = {
 };
 
 function hasTheme(props) {
-  return props.themes.items.length > 0;
+  return props.themes.get('items').count() > 0;
 }
 
 export default ReflectionFormComponent;

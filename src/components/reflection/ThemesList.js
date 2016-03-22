@@ -20,7 +20,7 @@ function mapTheme(theme, index, removeFn) {
 ThemesList.displayName = 'ReflectionThemesList';
 
 ThemesList.propTypes = {
-  themes: PropTypes.array.isRequired
+  themes: PropTypes.object.isRequired
 };
 
 export default ThemesList;

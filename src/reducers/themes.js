@@ -1,34 +1,20 @@
-/* Define your initial state here.
- *
- * If you change the type from object to something else, do not forget to update
- * src/container/App.js accordingly.
- */
-const initialState = {
-  items: []
-};
+const Immutable = require('immutable');
+const initialState = Immutable.Map({
+  items: Immutable.List()
+});
 
 module.exports = function(state = initialState, action) {
-  /* Keep the reducer clean - do not mutate the original state. */
-  let nextState = Object.assign({}, state);
-
   switch(action.type) {
     case 'ADD_THEME': {
-      if (nextState.items.indexOf(action.theme) === -1) {
-        nextState.items = [action.theme, ...nextState.items];
+      if (state.get('items').indexOf(action.theme) === -1) {
+        state = state.set('items', state.get('items').unshift(action.theme));
       }
-      return nextState;
     }
 
     case 'REMOVE_THEME': {
-      nextState.items = nextState.items.filter(function(el, index) {
-        return index !== action.index;
-      });
-      return nextState;
-    }
-
-    default: {
-      /* Return original state if no actions were consumed. */
-      return state;
+      state = state.set('items', state.get('items').delete(action.index));
     }
   }
+
+  return state;
 }
