@@ -2,15 +2,8 @@ require('normalize.css');
 require('styles/App.scss');
 
 import React from 'react';
-import ReflectionForm from './ReflectionForm';
 import { Router, browserHistory } from 'react-router'
-
-const routeConfig = [
-  {
-    path: '/',
-    component: ReflectionForm
-  }
-];
+import { routeConfig } from '../routes.js';
 
 class AppComponent extends React.Component {
   render() {
