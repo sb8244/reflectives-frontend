@@ -16,6 +16,7 @@ const dfltPort = 8000;
  */
 function getDefaultModules() {
   return {
+    noParse: /node_modules\/quill\/dist\/quill\.js/,
     preLoaders: [
       {
         test: /\.(js|jsx)$/,
