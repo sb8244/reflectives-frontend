@@ -1,4 +1,5 @@
 import ThemesForm from './components/reflection/ThemesForm';
+import ThemeReflectionComponent from './components/reflection/ThemeReflectionComponent';
 
 export const routeConfig = [
   {
@@ -6,7 +7,11 @@ export const routeConfig = [
     component: ThemesForm
   },
   {
+    path: '/reflect/:themeId',
+    component: ThemeReflectionComponent
+  },
+  {
     path: '/reflect',
-    component: ThemesForm
+    component: ThemeReflectionComponent
   }
 ];
