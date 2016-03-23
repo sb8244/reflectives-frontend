@@ -17,7 +17,7 @@ function mapTheme(theme, index, removeFn) {
   );
 }
 
-ThemesList.displayName = 'ReflectionThemesList';
+ThemesList.displayName = 'ThemesList';
 
 ThemesList.propTypes = {
   themes: PropTypes.object.isRequired

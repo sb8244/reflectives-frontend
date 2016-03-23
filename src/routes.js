@@ -1,8 +1,12 @@
-import ReflectionForm from './components/ReflectionForm';
+import ThemesForm from './components/reflection/ThemesForm';
 
 export const routeConfig = [
   {
     path: '/',
-    component: ReflectionForm
+    component: ThemesForm
+  },
+  {
+    path: '/reflect',
+    component: ThemesForm
   }
 ];

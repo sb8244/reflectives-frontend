@@ -7,13 +7,13 @@
 // import TestUtils from 'react-addons-test-utils';
 import createComponent from 'helpers/shallowRenderHelper';
 
-import ReflectionForm from 'components//ReflectionForm.js';
+import ThemesForm from 'components/reflection/ThemesForm';
 
-describe('ReflectionForm', () => {
-  let component;
+describe('ThemesForm', () => {
+  let tree;
 
   beforeEach(() => {
-    component = createComponent(ReflectionForm);
+    ({ tree } = createComponent(ThemesForm));
   });
 
   xit('passes themes to a ThemeList');

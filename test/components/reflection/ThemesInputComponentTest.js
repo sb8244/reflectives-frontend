@@ -13,7 +13,7 @@ describe('ThemesInputComponent', () => {
   let tree;
 
   beforeEach(() => {
-    { tree } = createComponent(ThemesInputComponent);
+    ({ tree } = createComponent(ThemesInputComponent));
   });
 
   describe('with an empty fields.theme value', function() {

@@ -2,12 +2,12 @@
 
 import React, { PropTypes } from 'react';
 
-require('styles//ReflectionForm.scss');
+require('styles/reflection/ThemesForm.scss');
 
-import ThemesInputComponent from './reflection/ThemesInputComponent';
-import ThemesList from './reflection/ThemesList';
+import ThemesInputComponent from './ThemesInputComponent';
+import ThemesList from './ThemesList';
 
-let ReflectionFormComponent = (props) => (
+let ThemesForm = (props) => (
   <div className="row align-center">
     <div className="medium-8 large-6 columns">
       <p className="reflection--intro-text">
@@ -31,8 +31,8 @@ let ReflectionFormComponent = (props) => (
   </div>
 );
 
-ReflectionFormComponent.displayName = 'ReflectionFormComponent';
-ReflectionFormComponent.propTypes = {
+ThemesForm.displayName = 'ThemesForm';
+ThemesForm.propTypes = {
   themes: PropTypes.object.isRequired
 };
 
@@ -40,4 +40,4 @@ function hasTheme(props) {
   return props.themes.get('items').count() > 0;
 }
 
-export default ReflectionFormComponent;
+export default ThemesForm;
