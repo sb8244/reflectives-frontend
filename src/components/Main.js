@@ -3,19 +3,26 @@ require('styles/App.scss');
 
 import React from 'react';
 import ReflectionForm from './ReflectionForm';
+import { Router, browserHistory } from 'react-router'
+
+const routeConfig = [
+  {
+    path: '/',
+    component: ReflectionForm
+  }
+];
 
 class AppComponent extends React.Component {
-  componentWillMount() {
-    this.props.actions.addTheme('Personal health');
-    this.props.actions.addTheme('Expanding professional development');
-  }
-
   render() {
     return (
-      <div className="app">
-        <ReflectionForm themes={this.props.themes} actions={this.props.actions} />
-      </div>
+      <Router history={browserHistory} createElement={createElementFn(this.props)} routes={routeConfig} />
     );
+  }
+}
+
+function createElementFn(parentProps) {
+  return function(Component, props) {
+    return <Component {...parentProps} {...props} />
   }
 }
 
