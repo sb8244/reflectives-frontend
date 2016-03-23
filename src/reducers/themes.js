@@ -1,6 +1,6 @@
 const Immutable = require('immutable');
 const initialState = Immutable.Map({
-  items: Immutable.List()
+  items: Immutable.List(['Personal Health'])
 });
 
 module.exports = function(state = initialState, action) {
