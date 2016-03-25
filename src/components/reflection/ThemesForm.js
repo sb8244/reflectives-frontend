@@ -23,9 +23,9 @@ let ThemesForm = (props) => (
       <ThemesList themes={props.themes.get('items')} removeTheme={props.actions.removeTheme} />
 
       <div className="reflection-themes--button-wrapper">
-        <button className="secondary hollow button large" disabled={!hasTheme(props)}>
+        <a className="secondary hollow button large" disabled={!hasTheme(props)} href="#/reflect">
           { hasTheme(props) ? 'Start Reflection' : 'Enter Themes to Begin Reflection' }
-        </button>
+        </a>
       </div>
     </div>
   </div>
