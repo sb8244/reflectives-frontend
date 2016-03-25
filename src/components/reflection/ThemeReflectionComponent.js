@@ -7,15 +7,10 @@ let ThemeReflectionComponent = (props) => {
   return (
     <div className='row align-center'>
       <div className='medium-10 large-10 columns theme-reflection--wrapper'>
-        <DraftReflectionComponent theme={getTheme(props)} />
+        <DraftReflectionComponent theme={props.theme} />
       </div>
     </div>
   )
-}
-
-function getTheme(props) {
-  let index = props.themeId || 0;
-  return props.themes.get(index).get('name');
 }
 
 ThemeReflectionComponent.displayName = 'ReflectionThemeReflectionComponent';
