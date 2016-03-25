@@ -1,0 +1,15 @@
+.DraftEditor-root {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 30px;
+}
+
+.public-DraftEditorPlaceholder-root {
+  color: #9197a3;
+  position: absolute;
+  z-index: 0;
+}
+
+.RichEditor-editor .public-DraftEditor-content {
+  min-height: 100px;
+}
