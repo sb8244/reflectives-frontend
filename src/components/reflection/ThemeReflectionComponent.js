@@ -1,7 +1,6 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import ReactQuill from 'react-quill';
 
 require('styles/reflection/ThemeReflection.scss');
@@ -44,8 +43,4 @@ class ThemeReflectionComponent extends Component {
 
 ThemeReflectionComponent.displayName = 'ReflectionThemeReflectionComponent';
 
-function mapStateToProps(state) {
-  return { themes: state.themes.get('items') };
-}
-
-export default connect(mapStateToProps)(ThemeReflectionComponent);
+export default ThemeReflectionComponent;

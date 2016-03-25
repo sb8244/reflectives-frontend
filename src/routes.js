@@ -1,17 +1,17 @@
-import ThemesForm from './components/reflection/ThemesForm';
-import ThemeReflectionComponent from './components/reflection/ThemeReflectionComponent';
+import WiredThemesForm from './containers/WiredThemesForm';
+import WiredThemeReflectionComponent from './containers/WiredThemeReflectionComponent';
 
 export const routeConfig = [
   {
     path: '/',
-    component: ThemesForm
+    component: WiredThemesForm
   },
   {
     path: '/reflect/:themeId',
-    component: ThemeReflectionComponent
+    component: WiredThemeReflectionComponent
   },
   {
     path: '/reflect',
-    component: ThemeReflectionComponent
+    component: WiredThemeReflectionComponent
   }
 ];
