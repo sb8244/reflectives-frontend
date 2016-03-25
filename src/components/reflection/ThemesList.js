@@ -11,7 +11,7 @@ let ThemesList = (props) => (
 function mapTheme(theme, index, removeFn) {
   return (
     <li className="reflection-themes--item" key={index}>
-      { theme }
+      { theme.get('name') }
       <span className="reflection-themes--item-close" onClick={() => removeFn(index)}>&times;</span>
     </li>
   );

@@ -15,7 +15,7 @@ let ThemeReflectionComponent = (props) => {
 
 function getTheme(props) {
   let index = props.themeId || 0;
-  return props.themes.get(index);
+  return props.themes.get(index).get('name');
 }
 
 ThemeReflectionComponent.displayName = 'ReflectionThemeReflectionComponent';
