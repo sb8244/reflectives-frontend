@@ -1,0 +1,18 @@
+.circleprogress-component {
+  .circle {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+
+    &.filled {
+      border: 0;
+      background: rgb(63, 173, 97);
+    }
+  }
+}

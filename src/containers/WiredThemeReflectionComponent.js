@@ -26,7 +26,7 @@ function themeIndex(props) {
 }
 
 function getTheme(props) {
-  return props.themes.get(themeIndex(props)).get('name');
+  return props.themes.get(themeIndex(props));
 }
 
 function mapStateToProps(state) {
