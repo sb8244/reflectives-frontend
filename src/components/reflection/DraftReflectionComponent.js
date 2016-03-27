@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import {convertToRaw, convertFromRaw, Editor, EditorState, RichUtils, ContentState} from 'draft-js';
+import { stateToHTML } from 'draft-js-export-html';
 
 require('styles/reflection/DraftReflection.scss');
 require('draft-js/dist/Draft.css');
@@ -11,7 +12,7 @@ class DraftReflectionComponent extends Component {
     super(props);
     this.state = {editorState: EditorState.createEmpty()};
   }
-  
+
   componentDidMount(props = this.props) {
     if (props.contentState) {
       let contentBlockArray = convertFromRaw(props.contentState.toJS());
@@ -23,7 +24,8 @@ class DraftReflectionComponent extends Component {
 
     this.onChange = (editorState) => {
       let raw = convertToRaw(editorState.getCurrentContent());
-      props.onChange(raw);
+      let styled = stateToHTML(editorState.getCurrentContent());
+      props.onChange({ raw, styled });
       return this.setState({editorState})
     };
   }

@@ -31,8 +31,8 @@ let ThemeReflectionComponent = (props) => {
 }
 
 function updateThemeDraftEditor(props) {
-  return function(newContentState) {
-    props.updateThemeDraftEditor(props.themeIndex, newContentState);
+  return function({ raw, styled }) {
+    props.updateThemeDraftEditor(props.themeIndex, raw, styled);
   }
 }
 

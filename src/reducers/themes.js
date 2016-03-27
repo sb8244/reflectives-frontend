@@ -48,7 +48,7 @@ module.exports = function(state = initialState, action) {
 
     case 'UPDATE_THEME_DRAFT_EDITOR': {
       let theme = state.get('items').get(action.index);
-      let newTheme = theme.set('contentState', action.contentState);
+      let newTheme = theme.set('contentState', action.contentState).set('htmlReflection', action.html);
       state = state.set('items', state.get('items').set(action.index, newTheme));
       break;
     }
