@@ -16,7 +16,10 @@ let ThemeReflectionComponent = (props) => {
         <DraftReflectionComponent theme={ props.theme.get('name') } />
 
         <div className="reflection-themes--button-wrapper">
-          <CircleProgressComponent count={completedCount(props)} max={NUMBER_OF_CIRCLES} />
+          <CircleProgressComponent count={completedCount(props)}
+                                   max={NUMBER_OF_CIRCLES}
+                                   partialTooltip="Try to make it to 90 seconds!"
+                                   fullTooltip="Nice, you made it to 90 seconds!" />
 
           { actionButton(props.nextThemeUrl) }
         </div>
