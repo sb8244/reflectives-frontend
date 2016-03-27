@@ -35,9 +35,9 @@ class DraftReflectionComponent extends Component {
     return (
       <div className={className}>
         <Editor editorState={editorState}
-                     onChange={this.onChange}
-                     handleKeyCommand={this.handleKeyCommand.bind(this)}
-                     placeholder={`Reflect on ${this.props.theme}`} />
+                onChange={this.onChange}
+                handleKeyCommand={this.handleKeyCommand.bind(this)}
+                placeholder={`Reflect on ${this.props.theme}`} />
       </div>
     );
   }

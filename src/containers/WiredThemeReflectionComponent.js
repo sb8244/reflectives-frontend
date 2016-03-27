@@ -10,6 +10,13 @@ class WiredThemeReflectionComponent extends Component {
     this.props.actions.startThemeTimer(themeIndex(this.props));
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (themeIndex(this.props) !== themeIndex(nextProps)) {
+      this.props.actions.endThemeTimer(themeIndex(this.props));
+      this.props.actions.startThemeTimer(themeIndex(nextProps));
+    }
+  }
+
   componentWillUnmount() {
     this.props.actions.endThemeTimer(themeIndex(this.props));
   }
@@ -22,7 +29,7 @@ class WiredThemeReflectionComponent extends Component {
 }
 
 function themeIndex(props) {
-  return props.params.themeId || 0;
+  return parseInt(props.params.themeId || 0);
 }
 
 function getTheme(props) {
