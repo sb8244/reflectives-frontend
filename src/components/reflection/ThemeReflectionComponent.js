@@ -6,6 +6,9 @@ import CircleProgressComponent from '../CircleProgressComponent';
 
 require('styles/reflection/ThemeReflection.scss');
 
+const NUMBER_OF_CIRCLES = 4;
+const SECONDS_PER_CIRCLE = 3;
+
 let ThemeReflectionComponent = (props) => {
   return (
     <div className='row align-center'>
@@ -13,7 +16,7 @@ let ThemeReflectionComponent = (props) => {
         <DraftReflectionComponent theme={ props.theme.get('name') } />
 
         <div className="reflection-themes--button-wrapper">
-          <CircleProgressComponent count={completedCount(props)} max={4} />
+          <CircleProgressComponent count={completedCount(props)} max={NUMBER_OF_CIRCLES} />
 
           { actionButton(props.nextThemeUrl) }
         </div>
@@ -24,7 +27,7 @@ let ThemeReflectionComponent = (props) => {
 
 function completedCount(props) {
   let seconds = props.theme.get('secondsOfWriting') || 0;
-  return Math.min(Math.floor(seconds/30) + 1, 4);
+  return Math.min(Math.floor(seconds/SECONDS_PER_CIRCLE) + 1, NUMBER_OF_CIRCLES);
 }
 
 function actionButton(nextThemeUrl) {
