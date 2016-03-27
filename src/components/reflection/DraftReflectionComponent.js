@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import {Editor, EditorState, RichUtils} from 'draft-js';
 
 require('styles/reflection/DraftReflection.scss');
+require('draft-js/dist/Draft.css');
 
 class DraftReflectionComponent extends Component {
   constructor(props) {
