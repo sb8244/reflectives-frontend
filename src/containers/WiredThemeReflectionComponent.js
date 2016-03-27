@@ -16,17 +16,27 @@ class WiredThemeReflectionComponent extends Component {
 
   render() {
     return (
-      <ThemeReflectionComponent theme={getTheme(this.props)} />
+      <ThemeReflectionComponent theme={getTheme(this.props)} nextThemeUrl={nextThemeUrl(this.props)} />
     );
   }
 }
 
 function themeIndex(props) {
-  return props.themeId || 0;
+  return props.params.themeId || 0;
 }
 
 function getTheme(props) {
   return props.themes.get(themeIndex(props));
+}
+
+function hasNextTheme(props) {
+  return themeIndex(props) + 1 < props.themes.count();
+}
+
+function nextThemeUrl(props) {
+  if (hasNextTheme(props)) {
+    return `#/reflect/${themeIndex(props) + 1}`
+  }
 }
 
 function mapStateToProps(state) {
