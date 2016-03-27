@@ -14,7 +14,7 @@ let CircleProgressComponent = (props) => (
 function renderCircles(filled, total) {
   return Immutable.Range(0, total).map(i => {
     let className = i < filled ? 'filled circle' : 'circle';
-    return <div className={className} />;
+    return <div key={i} className={className} />;
   });
 }
 
