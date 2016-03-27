@@ -13,7 +13,9 @@ let ThemeReflectionComponent = (props) => {
   return (
     <div className='row align-center'>
       <div className='medium-10 large-10 columns theme-reflection--wrapper'>
-        <DraftReflectionComponent theme={ props.theme.get('name') } />
+        <DraftReflectionComponent theme={ props.theme.get('name') }
+                                  contentState={ props.theme.get('contentState') }
+                                  onChange={updateThemeDraftEditor(props)} />
 
         <div className="reflection-themes--button-wrapper">
           <CircleProgressComponent count={completedCount(props)}
@@ -26,6 +28,12 @@ let ThemeReflectionComponent = (props) => {
       </div>
     </div>
   )
+}
+
+function updateThemeDraftEditor(props) {
+  return function(newContentState) {
+    props.updateThemeDraftEditor(props.themeIndex, newContentState);
+  }
 }
 
 function completedCount(props) {

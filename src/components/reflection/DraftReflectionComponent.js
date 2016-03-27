@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import {convertToRaw, convertFromRaw, Editor, EditorState, RichUtils, ContentState} from 'draft-js';
 
 require('styles/reflection/DraftReflection.scss');
 require('draft-js/dist/Draft.css');
@@ -9,9 +9,18 @@ require('draft-js/dist/Draft.css');
 class DraftReflectionComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
+
+    if (props.contentState) {
+      let contentBlockArray = convertFromRaw(props.contentState.toJS());
+      let contentState = ContentState.createFromBlockArray(contentBlockArray);
+      this.state = {editorState: EditorState.createWithContent(contentState)};
+    } else {
+      this.state = {editorState: EditorState.createEmpty()};
+    }
+
     this.onChange = (editorState) => {
-      console.log(editorState.getCurrentContent().getPlainText());
+      let raw = convertToRaw(editorState.getCurrentContent());
+      props.onChange(raw);
       return this.setState({editorState})
     };
   }
