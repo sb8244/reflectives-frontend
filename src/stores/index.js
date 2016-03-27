@@ -1,11 +1,15 @@
 const redux = require('redux');
 const reducers = require('../reducers');
+import ReduxThunk from 'redux-thunk';
 
 module.exports = function(initialState) {
   const store = redux.createStore(
     reducers,
     initialState,
-    window.devToolsExtension ? window.devToolsExtension() : undefined
+    redux.compose(
+      redux.applyMiddleware(ReduxThunk),
+      window.devToolsExtension ? window.devToolsExtension() : undefined
+    )
   )
 
   if (module.hot) {
