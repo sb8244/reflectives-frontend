@@ -5,6 +5,7 @@ import configureStore from './stores';
 
 import { Router, hashHistory } from 'react-router'
 import { routeConfig } from './routes.js';
+import ReactTooltip from 'react-tooltip';
 
 const store = configureStore();
 
@@ -12,8 +13,12 @@ require('normalize.css');
 require('styles/App.scss');
 
 render(
-  <Provider store={store}>
-    <Router history={hashHistory} routes={routeConfig} />
-  </Provider>,
+  <div>
+    <Provider store={store}>
+      <Router history={hashHistory} routes={routeConfig} />
+    </Provider>
+
+    <ReactTooltip effect="solid" />
+  </div>,
   document.getElementById('app')
 );
