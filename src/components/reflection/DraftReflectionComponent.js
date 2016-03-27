@@ -9,7 +9,10 @@ require('draft-js/dist/Draft.css');
 class DraftReflectionComponent extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {editorState: EditorState.createEmpty()};
+  }
+  
+  componentDidMount(props = this.props) {
     if (props.contentState) {
       let contentBlockArray = convertFromRaw(props.contentState.toJS());
       let contentState = ContentState.createFromBlockArray(contentBlockArray);
@@ -23,6 +26,12 @@ class DraftReflectionComponent extends Component {
       props.onChange(raw);
       return this.setState({editorState})
     };
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(this.props.theme !== newProps.theme) {
+      this.componentDidMount(newProps);
+    }
   }
 
   handleKeyCommand(command) {
