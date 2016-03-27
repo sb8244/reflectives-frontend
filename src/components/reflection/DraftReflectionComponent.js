@@ -16,6 +16,15 @@ class DraftReflectionComponent extends Component {
     };
   }
 
+  handleKeyCommand(command) {
+    const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
+    if (newState) {
+      this.onChange(newState);
+      return true;
+    }
+    return false;
+  }
+
   render() {
     const {editorState} = this.state;
 
@@ -31,6 +40,7 @@ class DraftReflectionComponent extends Component {
       <div className={className}>
         <Editor editorState={editorState}
                 onChange={this.onChange}
+                handleKeyCommand={this.handleKeyCommand.bind(this)}
                 placeholder={`Reflect on ${this.props.theme}`} />
       </div>
     );
