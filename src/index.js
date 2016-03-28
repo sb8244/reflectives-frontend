@@ -15,10 +15,17 @@ require('styles/App.scss');
 render(
   <div>
     <Provider store={store}>
-      <Router history={hashHistory} routes={routeConfig} />
+      <Router history={hashHistory} routes={routeConfig} createElement={createElement} />
     </Provider>
 
     <ReactTooltip effect="solid" />
   </div>,
   document.getElementById('app')
 );
+
+function createElement(Component, props) {
+  ReactTooltip.hide();
+  ReactTooltip.rebuild();
+
+  return <Component {...props} />
+}
