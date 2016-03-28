@@ -13,16 +13,21 @@ let ThemeReflectionComponent = (props) => {
   return (
     <div className='row align-center'>
       <div className='medium-10 large-10 columns theme-reflection--wrapper'>
+        <div className="theme-reflection--header">
+          <CircleProgressComponent count={completedCount(props)}
+                                   max={NUMBER_OF_CIRCLES}
+                                   topOffset={10}
+                                   partialTooltip="Try to make it to 90 seconds!"
+                                   fullTooltip="Nice, you made it to 90 seconds!" />
+
+          <h2>Reflect on { props.theme.get('name') }</h2>
+        </div>
+
         <DraftReflectionComponent theme={ props.theme.get('name') }
                                   contentState={ props.theme.get('contentState') }
                                   onChange={updateThemeDraftEditor(props)} />
 
         <div className="reflection-themes--button-wrapper">
-          <CircleProgressComponent count={completedCount(props)}
-                                   max={NUMBER_OF_CIRCLES}
-                                   partialTooltip="Try to make it to 90 seconds!"
-                                   fullTooltip="Nice, you made it to 90 seconds!" />
-
           { actionButton(props.nextThemeUrl) }
         </div>
       </div>

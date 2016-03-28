@@ -6,7 +6,7 @@ import Immutable from 'immutable';
 require('styles/CircleProgress.scss');
 
 let CircleProgressComponent = (props) => (
-  <div className='circleprogress-component' data-tip={tooltipText(props)} data-offset='{"top":-10}'>
+  <div className='circleprogress-component' data-tip={tooltipText(props)} data-offset={`{"top":${props.topOffset}}`}>
     { renderCircles(props.count, props.max) }
   </div>
 );

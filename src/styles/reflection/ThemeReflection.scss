@@ -1,6 +1,16 @@
-.reflection-themes--button-wrapper {
+.theme-reflection--wrapper {
+  .theme-reflection--header {
+    margin-bottom: 14px;
+
+    h2 {
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+  }
+
   .circleprogress-component {
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 14px;
   }
 }
