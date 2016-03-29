@@ -10,6 +10,7 @@ import ReactTooltip from 'react-tooltip';
 const store = configureStore();
 
 require('normalize.css');
+require('font-awesome/css/font-awesome.css');
 require('styles/App.scss');
 
 render(

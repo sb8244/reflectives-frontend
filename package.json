@@ -67,6 +67,7 @@
     "core-js": "^2.0.0",
     "draft-js": "^0.3.0",
     "draft-js-export-html": "^0.1.9",
+    "font-awesome": "^4.5.0",
     "foundation-sites": "^6.2.0",
     "immutable": "^3.7.6",
     "normalize.css": "^3.0.3",
