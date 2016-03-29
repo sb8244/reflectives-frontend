@@ -55,7 +55,7 @@ function actionButton(nextThemeUrl) {
     );
   } else {
     return (
-      <a className="secondary hollow button large no-mb">
+      <a className="secondary hollow button large no-mb" href="#/finish">
         Finish
       </a>
     );
