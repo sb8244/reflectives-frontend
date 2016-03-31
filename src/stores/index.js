@@ -4,25 +4,28 @@ import ReduxThunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import Immutable from 'immutable';
 
-import { initialState as remindAtInitialState } from '../reducers/remindAt';
-
 let persistConfig = {
   serialize: function(collection) {
     if (collection.themes.get('submitting') === 'success') {
-      return;
+      return JSON.stringify({});
     }
 
     let serializableCollection = Object.assign({}, collection);
     serializableCollection.themes = serializableCollection.themes.toJSON();
+    delete serializableCollection.remindAt;
+
     return JSON.stringify(serializableCollection);
   },
   deserialize: function(serializedData) {
     let data = JSON.parse(serializedData);
-    data.themes.items.forEach(theme => {
-      delete theme.timerId;
-    });
-    data.themes = Immutable.fromJS(data.themes);
-    data.remindAt = remindAtInitialState;
+
+    if (data.themes) {
+      data.themes.items.forEach(theme => {
+        delete theme.timerId;
+      });
+      data.themes = Immutable.fromJS(data.themes);
+    }
+
     return data;
   }
 };
