@@ -4,6 +4,9 @@ const initialState = Immutable.Map({
   submitting: false
 });
 
+export const THEME_SUBMITTING = 'submitting';
+export const THEME_SUBMITTING_SUCCESS = 'success';
+
 function createEmptyTheme(name) {
   return Immutable.Map({
     name: name
@@ -55,12 +58,12 @@ export default function(state = initialState, action) {
     }
 
     case 'PERSIST_THEME_START': {
-      state = state.set('submitting', 'submitting');
+      state = state.set('submitting', THEME_SUBMITTING);
       break;
     }
 
     case 'PERSIST_THEME_SUCCESS': {
-      state = state.set('submitting', 'success');
+      state = state.set('submitting', THEME_SUBMITTING_SUCCESS);
       break;
     }
   }

@@ -24,6 +24,7 @@ class WiredThemeReflectionComponent extends Component {
   render() {
     return (
       <ThemeReflectionComponent theme={getTheme(this.props)}
+                                submittingTheme={this.props.submittingTheme}
                                 themeIndex={themeIndex(this.props)}
                                 nextThemeUrl={nextThemeUrl(this.props)}
                                 actions={ this.props.actions } />
@@ -50,7 +51,7 @@ function nextThemeUrl(props) {
 }
 
 function mapStateToProps(state) {
-  return { themes: state.themes.get('items') };
+  return { submittingTheme: state.themes.get('submitting'), themes: state.themes.get('items') };
 }
 
 function mapDispatchToProps(dispatch) {

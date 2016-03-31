@@ -3,6 +3,7 @@
 import React, { PropTypes } from 'react';
 import DraftReflectionComponent from './DraftReflectionComponent';
 import CircleProgressComponent from '../CircleProgressComponent';
+import { THEME_SUBMITTING_SUCCESS } from '../../reducers/themes';
 
 require('styles/reflection/ThemeReflection.scss');
 
@@ -13,12 +14,12 @@ let ThemeReflectionComponent = (props) => {
   return (
     <div className='row align-center'>
       <div className='medium-10 large-10 columns theme-reflection--wrapper'>
-        <div className="theme-reflection--header">
+        <div className='theme-reflection--header'>
           <CircleProgressComponent count={completedCount(props)}
                                    max={NUMBER_OF_CIRCLES}
                                    topOffset={10}
-                                   partialTooltip="Try to make it to 90 seconds!"
-                                   fullTooltip="Nice, you made it to 90 seconds!" />
+                                   partialTooltip='Try to make it to 90 seconds!'
+                                   fullTooltip='Nice, you made it to 90 seconds!' />
 
           <h2>Reflect on { props.theme.get('name') }</h2>
         </div>
@@ -27,7 +28,7 @@ let ThemeReflectionComponent = (props) => {
                                   contentState={ props.theme.get('contentState') }
                                   onChange={updateThemeDraftEditor(props)} />
 
-        <div className="reflection-themes--button-wrapper">
+        <div className='reflection-themes--button-wrapper'>
           { actionButton(props.nextThemeUrl, props) }
         </div>
       </div>
@@ -49,14 +50,25 @@ function completedCount(props) {
 function actionButton(nextThemeUrl, props) {
   if (nextThemeUrl) {
     return (
-      <a className="secondary hollow button large no-mb" href={nextThemeUrl}>
+      <a className='secondary hollow button large no-mb' href={nextThemeUrl}>
         Next Topic
       </a>
     );
-  } else {
+  } else if(props.submittingTheme === false) {
     return (
-      <button className="secondary hollow button large no-mb" onClick={persistReflection(props.actions.endThemeTimer, props.actions.persistReflection, props)}>
+      <button className='secondary hollow button large no-mb' onClick={persistReflection(props.actions.endThemeTimer, props.actions.persistReflection, props)}>
         Finish
+      </button>
+    );
+  } else {
+    let text = 'Submitting...';
+    if (props.submittingTheme === THEME_SUBMITTING_SUCCESS) {
+      text = 'Successfully Submitted';
+    }
+
+    return (
+      <button className='secondary hollow button large no-mb' disabled>
+        { text }
       </button>
     );
   }
