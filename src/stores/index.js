@@ -40,7 +40,7 @@ module.exports = function(initialState) {
     redux.compose(
       persistState(null, persistConfig),
       redux.applyMiddleware(ReduxThunk),
-      window.devToolsExtension ? window.devToolsExtension() : undefined
+      window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   )
 
