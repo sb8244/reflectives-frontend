@@ -6,7 +6,7 @@ let DateSelectionForm = (props) => (
     <select value={defaultOption(props.dates)} onChange={props.onSelect} {...props.fields.date} required>
       { showOptions(props.dates) }
     </select>
-    <input type="submit" className='button secondary hollow' />
+    <input type="submit" className='button secondary hollow' value={props.buttonText} />
   </form>
 );
 
