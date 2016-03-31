@@ -12,6 +12,10 @@ let persistConfig = {
 
     let serializableCollection = Object.assign({}, collection);
     serializableCollection.themes = serializableCollection.themes.toJSON();
+    serializableCollection.themes.items.forEach(theme => {
+      delete theme.timerId;
+    });
+
     delete serializableCollection.remindAt;
 
     return JSON.stringify(serializableCollection);
@@ -20,9 +24,6 @@ let persistConfig = {
     let data = JSON.parse(serializedData);
 
     if (data.themes) {
-      data.themes.items.forEach(theme => {
-        delete theme.timerId;
-      });
       data.themes = Immutable.fromJS(data.themes);
     }
 
