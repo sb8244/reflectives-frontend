@@ -23,7 +23,7 @@ function formDefaults(props) {
 }
 
 function defaultOption(dates) {
-  return dates[5].time;
+  return dates[4].time;
 }
 
 function onSubmit({ defaultDate }) {

@@ -30,9 +30,11 @@ let FinishComponent = () => (
 function next7Days() {
   let dates = Immutable.Range(1, 8).map(days => moment().add(days, 'days'));
   return dates.map(time => {
+    let morning = time.clone().hour(8).minutes(30).seconds(0);
+
     return {
-      time: time.unix(),
-      display: 'Next ' + time.format('dddd')
+      time: morning.unix(),
+      display: 'Next ' + morning.format('dddd (h:mm A)')
     };
   }).toArray();
 }
