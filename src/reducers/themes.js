@@ -9,7 +9,7 @@ function createEmptyTheme(name) {
   })
 }
 
-module.exports = function(state = initialState, action) {
+export default function(state = initialState, action) {
   switch(action.type) {
     case 'ADD_THEME': {
       if (state.get('items').indexOf(action.theme) === -1) {

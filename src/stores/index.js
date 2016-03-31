@@ -4,6 +4,8 @@ import ReduxThunk from 'redux-thunk';
 import persistState from 'redux-localstorage';
 import Immutable from 'immutable';
 
+import { initialState as remindAtInitialState } from '../reducers/remindAt';
+
 let persistConfig = {
   serialize: function(collection) {
     let serializableCollection = Object.assign({}, collection);
@@ -16,6 +18,7 @@ let persistConfig = {
       delete theme.timerId;
     });
     data.themes = Immutable.fromJS(data.themes);
+    data.remindAt = remindAtInitialState;
     return data;
   }
 };

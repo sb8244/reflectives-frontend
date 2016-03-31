@@ -2,6 +2,7 @@
 
 import React from 'react';
 import FinishComponent from '../components/reflection/FinishComponent';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 let WiredFinishComponent = (props) => {
@@ -10,8 +11,16 @@ let WiredFinishComponent = (props) => {
   );
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return { submissionId: 1, remindAt: state.remindAt };
 }
 
-export default connect(mapStateToProps)(WiredFinishComponent);
+function mapDispatchToProps(dispatch) {
+  const actions = {
+    remindAt: require('../actions/remindAt.js')
+  };
+  const actionMap = { actions: bindActionCreators(actions, dispatch) };
+  return actionMap;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WiredFinishComponent);

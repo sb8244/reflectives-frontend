@@ -6,7 +6,8 @@ let DateSelectionForm = (props) => (
     <select value={defaultOption(props.dates)} onChange={props.onSelect} {...props.fields.date} required>
       { showOptions(props.dates) }
     </select>
-    <input type="submit" className='button secondary hollow' value={props.buttonText} />
+
+    <input type="submit" disabled={props.disableSubmit} className='button secondary hollow' value={props.buttonText} />
   </form>
 );
 
@@ -40,7 +41,8 @@ DateSelectionForm = reduxForm({
 
 DateSelectionForm.displayName = 'DateSelectionForm';
 DateSelectionForm.propTypes = {
-  dates: PropTypes.array.isRequired
+  dates: PropTypes.array.isRequired,
+  disableSubmit: PropTypes.bool.isRequired
 };
 
 export default DateSelectionForm;
