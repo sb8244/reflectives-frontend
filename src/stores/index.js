@@ -23,6 +23,8 @@ let persistConfig = {
   deserialize: function(serializedData) {
     let data = JSON.parse(serializedData);
 
+    if (!data) { return data; }
+
     if (data.themes) {
       data.themes = Immutable.fromJS(data.themes);
     }
