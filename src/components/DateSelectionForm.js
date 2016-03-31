@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import {reduxForm} from 'redux-form';
 
 let DateSelectionForm = (props) => (
-  <form className='date-selection--form' onSubmit={props.handleSubmit(onSubmit(formDefaults(props)))}>
+  <form className='date-selection--form' onSubmit={props.handleSubmit(onSubmit(props, formDefaults(props)))}>
     <select value={defaultOption(props.dates)} onChange={props.onSelect} {...props.fields.date} required>
       { showOptions(props.dates) }
     </select>
@@ -26,10 +26,10 @@ function defaultOption(dates) {
   return dates[4].time;
 }
 
-function onSubmit({ defaultDate }) {
+function onSubmit({ onDateSelected }, { defaultDate }) {
   return function(fields) {
     let selectedDate = fields.date || defaultDate;
-    console.log(selectedDate);
+    onDateSelected(selectedDate);
   }
 }
 

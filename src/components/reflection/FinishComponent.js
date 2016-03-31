@@ -26,7 +26,7 @@ let FinishComponent = () => (
           </div>
 
           <div className='small-4 small-offset-1'>
-            <DateSelectionForm dates={next7Days()} buttonText="Remind me then!" />
+            <DateSelectionForm dates={next7Days()} buttonText="Remind me then!" onDateSelected={dateSelected} />
           </div>
         </div>
       </div>
@@ -49,6 +49,10 @@ function next7Days() {
       display: display
     };
   }).toArray();
+}
+
+function dateSelected(timestamp) {
+  console.log(timestamp);
 }
 
 FinishComponent.displayName = 'ReflectionFinishComponent';
