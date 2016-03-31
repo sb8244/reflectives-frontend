@@ -1,6 +1,6 @@
 const Immutable = require('immutable');
 const initialState = Immutable.Map({
-  items: Immutable.List([createEmptyTheme('Personal Health')]),
+  items: Immutable.List(),
   submitting: false
 });
 
