@@ -60,7 +60,7 @@ export default function(state = initialState, action) {
     }
 
     case 'PERSIST_THEME_SUCCESS': {
-      state = initialState;
+      state = state.set('submitting', 'success');
       break;
     }
   }

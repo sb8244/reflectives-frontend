@@ -23,8 +23,7 @@ class WiredThemeReflectionComponent extends Component {
 
   render() {
     return (
-      <ThemeReflectionComponent updateThemeDraftEditor={this.props.actions.updateThemeDraftEditor}
-                                theme={getTheme(this.props)}
+      <ThemeReflectionComponent theme={getTheme(this.props)}
                                 themeIndex={themeIndex(this.props)}
                                 nextThemeUrl={nextThemeUrl(this.props)}
                                 actions={ this.props.actions } />

@@ -8,6 +8,10 @@ import { initialState as remindAtInitialState } from '../reducers/remindAt';
 
 let persistConfig = {
   serialize: function(collection) {
+    if (collection.themes.get('submitting') === 'success') {
+      return;
+    }
+
     let serializableCollection = Object.assign({}, collection);
     serializableCollection.themes = serializableCollection.themes.toJSON();
     return JSON.stringify(serializableCollection);

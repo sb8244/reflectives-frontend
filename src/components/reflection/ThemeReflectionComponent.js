@@ -37,7 +37,7 @@ let ThemeReflectionComponent = (props) => {
 
 function updateThemeDraftEditor(props) {
   return function({ raw, styled }) {
-    props.updateThemeDraftEditor(props.themeIndex, raw, styled);
+    props.actions.updateThemeDraftEditor(props.themeIndex, raw, styled);
   }
 }
 
@@ -46,7 +46,7 @@ function completedCount(props) {
   return Math.min(Math.floor(seconds/SECONDS_PER_CIRCLE) + 1, NUMBER_OF_CIRCLES);
 }
 
-function actionButton(nextThemeUrl, { actions }) {
+function actionButton(nextThemeUrl, props) {
   if (nextThemeUrl) {
     return (
       <a className="secondary hollow button large no-mb" href={nextThemeUrl}>
@@ -55,15 +55,16 @@ function actionButton(nextThemeUrl, { actions }) {
     );
   } else {
     return (
-      <a className="secondary hollow button large no-mb" onClick={persistReflection(actions.persistReflection)}>
+      <button className="secondary hollow button large no-mb" onClick={persistReflection(props.actions.endThemeTimer, props.actions.persistReflection, props)}>
         Finish
-      </a>
+      </button>
     );
   }
 }
 
-function persistReflection(action) {
+function persistReflection(endThemeTimer, action, { themeIndex }) {
   return function() {
+    endThemeTimer(themeIndex);
     action();
   };
 }
