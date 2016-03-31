@@ -6,11 +6,21 @@ import { connect } from 'react-redux';
 import ThemeReflectionComponent from '../components/reflection/ThemeReflectionComponent';
 
 class WiredThemeReflectionComponent extends Component {
+  componentWillMount() {
+    if (getTheme(this.props) === undefined) {
+      window.location.href = '/';
+    }
+  }
+
   componentDidMount() {
     this.props.actions.startThemeTimer(themeIndex(this.props));
   }
 
   componentWillReceiveProps(nextProps) {
+    if (getTheme(nextProps) === undefined) {
+      window.location.href = '/';
+    }
+
     if (themeIndex(this.props) !== themeIndex(nextProps)) {
       this.props.actions.endThemeTimer(themeIndex(this.props));
       this.props.actions.startThemeTimer(themeIndex(nextProps));
