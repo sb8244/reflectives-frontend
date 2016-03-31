@@ -16,7 +16,7 @@ export const routeConfig = [
     component: WiredThemeReflectionComponent
   },
   {
-    path: '/finish',
+    path: '/finish/:submissionId',
     component: WiredFinishComponent
   }
 ];

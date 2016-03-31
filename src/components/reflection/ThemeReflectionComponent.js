@@ -28,7 +28,7 @@ let ThemeReflectionComponent = (props) => {
                                   onChange={updateThemeDraftEditor(props)} />
 
         <div className="reflection-themes--button-wrapper">
-          { actionButton(props.nextThemeUrl) }
+          { actionButton(props.nextThemeUrl, props) }
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@ function completedCount(props) {
   return Math.min(Math.floor(seconds/SECONDS_PER_CIRCLE) + 1, NUMBER_OF_CIRCLES);
 }
 
-function actionButton(nextThemeUrl) {
+function actionButton(nextThemeUrl, { actions }) {
   if (nextThemeUrl) {
     return (
       <a className="secondary hollow button large no-mb" href={nextThemeUrl}>
@@ -55,11 +55,17 @@ function actionButton(nextThemeUrl) {
     );
   } else {
     return (
-      <a className="secondary hollow button large no-mb" href="#/finish">
+      <a className="secondary hollow button large no-mb" onClick={persistReflection(actions.persistReflection)}>
         Finish
       </a>
     );
   }
+}
+
+function persistReflection(action) {
+  return function() {
+    action();
+  };
 }
 
 ThemeReflectionComponent.displayName = 'ReflectionThemeReflectionComponent';

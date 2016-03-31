@@ -1,4 +1,4 @@
-module.exports = function(remindableId, timestamp) {
+export default function(remindableId, timestamp) {
   return function(dispatch) {
     dispatch({ type: 'REMIND_AT_STARTED', remindableId, timestamp });
 
@@ -6,4 +6,4 @@ module.exports = function(remindableId, timestamp) {
       dispatch({ type: 'REMIND_AT_SUCCESS', remindableId, timestamp });
     }, 1000);
   };
-};
+}

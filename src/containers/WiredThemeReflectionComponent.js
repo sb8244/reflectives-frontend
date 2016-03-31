@@ -26,7 +26,8 @@ class WiredThemeReflectionComponent extends Component {
       <ThemeReflectionComponent updateThemeDraftEditor={this.props.actions.updateThemeDraftEditor}
                                 theme={getTheme(this.props)}
                                 themeIndex={themeIndex(this.props)}
-                                nextThemeUrl={nextThemeUrl(this.props)} />
+                                nextThemeUrl={nextThemeUrl(this.props)}
+                                actions={ this.props.actions } />
     );
   }
 }
@@ -57,7 +58,8 @@ function mapDispatchToProps(dispatch) {
   const actions = {
     startThemeTimer: require('../actions/themes/startThemeTimer.js'),
     endThemeTimer: require('../actions/themes/endThemeTimer.js'),
-    updateThemeDraftEditor: require('../actions/themes/updateThemeDraftEditor.js')
+    updateThemeDraftEditor: require('../actions/themes/updateThemeDraftEditor.js'),
+    persistReflection: require('../actions/themes/persistReflection.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

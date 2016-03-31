@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 let WiredFinishComponent = (props) => {
   return (
-    <FinishComponent {...props} />
+    <FinishComponent submissionId={props.params.submissionId} {...props} />
   );
 };
 

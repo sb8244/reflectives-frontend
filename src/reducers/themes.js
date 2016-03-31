@@ -1,6 +1,7 @@
 const Immutable = require('immutable');
 const initialState = Immutable.Map({
-  items: Immutable.List([createEmptyTheme('Personal Health')])
+  items: Immutable.List([createEmptyTheme('Personal Health')]),
+  submitting: false
 });
 
 function createEmptyTheme(name) {
@@ -50,6 +51,16 @@ export default function(state = initialState, action) {
       let theme = state.get('items').get(action.index);
       let newTheme = theme.set('contentState', action.contentState).set('htmlReflection', action.html);
       state = state.set('items', state.get('items').set(action.index, newTheme));
+      break;
+    }
+
+    case 'PERSIST_THEME_START': {
+      state = state.set('submitting', 'submitting');
+      break;
+    }
+
+    case 'PERSIST_THEME_SUCCESS': {
+      state = initialState;
       break;
     }
   }
