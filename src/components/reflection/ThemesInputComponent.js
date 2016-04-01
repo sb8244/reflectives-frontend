@@ -5,8 +5,6 @@ import {reduxForm} from 'redux-form';
 import addTheme from '../../actions/themes/addTheme';
 import {reset} from 'redux-form';
 
-require('styles/reflection/ThemesInput.scss');
-
 function addThemeSubmit(values, dispatch) {
   dispatch(addTheme(values.theme));
   dispatch(reset('addTheme'));
