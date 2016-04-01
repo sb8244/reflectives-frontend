@@ -10,7 +10,7 @@ require('draft-js/dist/Draft.css');
 
 export const IMPORTANT = 'BOLD';
 const INLINE_STYLES = [
-  { label: 'Mark Important', activeLabel: 'Unmark Important', style: IMPORTANT }
+  { label: 'Mark Important', activeLabel: 'Unmark Important', style: IMPORTANT, tooltip: 'Important snippets will stand out in the reminder email.' }
 ];
 
 class DraftReflectionComponent extends Component {

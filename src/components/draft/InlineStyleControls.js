@@ -13,6 +13,7 @@ let InlineStyleControls = (props) => {
           activeLabel={type.activeLabel}
           onToggle={props.onToggle}
           style={type.style}
+          tooltip={type.tooltip}
         />
       )}
     </div>

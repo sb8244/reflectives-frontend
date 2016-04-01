@@ -11,6 +11,7 @@ export default class StyleButton extends Component {
 
   render() {
     let className = 'RichEditor-styleButton label';
+    let props = {};
     var label = this.props.label;
 
     if (this.props.active) {
@@ -20,8 +21,12 @@ export default class StyleButton extends Component {
       className += ' secondary';
     }
 
+    if (this.props.tooltip) {
+      props['data-tip'] = this.props.tooltip;
+    }
+
     return (
-      <span className={className} onMouseDown={this.onToggle}>
+      <span className={className} onMouseDown={this.onToggle} {...props}>
         {label}
       </span>
     );
