@@ -13,8 +13,7 @@ let ThemesForm = (props) => (
       <p className="reflection--intro-text">
         You will be guided through a reflection process. Identify your reflection
         themes first, then reflect on each theme individually in a free-form thought process. There is no
-        limit to how much or little you can reflect on a theme, but 90 seconds will be recommended per
-        theme.
+        limit to how much or little you can reflect on a theme, but a 90 second timer will activate per theme.
       </p>
 
       <h2 className="reflection--header">What themes from the last week do you want to reflect on?</h2>
