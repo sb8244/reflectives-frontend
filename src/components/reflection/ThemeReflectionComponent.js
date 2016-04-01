@@ -8,7 +8,8 @@ import { THEME_SUBMITTING_SUCCESS } from '../../reducers/themes';
 require('styles/reflection/ThemeReflection.scss');
 
 const NUMBER_OF_CIRCLES = 4;
-const SECONDS_PER_CIRCLE = 3;
+const TOTAL_SECONDS = 90;
+const SECONDS_PER_CIRCLE = TOTAL_SECONDS / (NUMBER_OF_CIRCLES - 1);
 
 let ThemeReflectionComponent = (props) => {
   return (
