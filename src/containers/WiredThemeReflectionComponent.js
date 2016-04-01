@@ -37,6 +37,7 @@ class WiredThemeReflectionComponent extends Component {
                                 submittingTheme={this.props.submittingTheme}
                                 themeIndex={themeIndex(this.props)}
                                 nextThemeUrl={nextThemeUrl(this.props)}
+                                previousThemeUrl={previousThemeUrl(this.props)}
                                 actions={ this.props.actions } />
     );
   }
@@ -54,9 +55,21 @@ function hasNextTheme(props) {
   return themeIndex(props) + 1 < props.themes.count();
 }
 
+function hasPreviousTheme(props) {
+  return themeIndex(props) > 0;
+}
+
 function nextThemeUrl(props) {
   if (hasNextTheme(props)) {
     return `#/reflect/${themeIndex(props) + 1}`
+  }
+}
+
+function previousThemeUrl(props) {
+  if (hasPreviousTheme(props)) {
+    return `#/reflect/${themeIndex(props) - 1}`
+  } else {
+    return '#/'
   }
 }
 

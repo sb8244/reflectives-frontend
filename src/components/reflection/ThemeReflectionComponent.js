@@ -30,6 +30,7 @@ let ThemeReflectionComponent = (props) => {
                                   onChange={updateThemeDraftEditor(props)} />
 
         <div className='reflection-themes--button-wrapper'>
+          { previousButton(props.previousThemeUrl) }
           { actionButton(props.nextThemeUrl, props) }
           <small className='reflection-themes--important-snippets'
                  data-tip='These snippets will be highlighted in your reminder email.'
@@ -51,6 +52,16 @@ function updateThemeDraftEditor(props) {
 function completedCount(props) {
   let seconds = props.theme.get('secondsOfWriting') || 0;
   return Math.min(Math.floor(seconds/SECONDS_PER_CIRCLE) + 1, NUMBER_OF_CIRCLES);
+}
+
+function previousButton(previousThemeUrl) {
+  if (previousThemeUrl) {
+    return (
+      <a className='secondary hollow button large no-mb mr15' href={previousThemeUrl}>
+        Back
+      </a>
+    );
+  }
 }
 
 function actionButton(nextThemeUrl, props) {
