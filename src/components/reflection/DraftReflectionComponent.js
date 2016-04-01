@@ -8,9 +8,9 @@ import InlineStyleControls from '../draft/InlineStyleControls';
 require('styles/reflection/DraftReflection.scss');
 require('draft-js/dist/Draft.css');
 
-export const UNDERLINE = 'UNDERLINE';
+export const IMPORTANT = 'BOLD';
 const INLINE_STYLES = [
-  { label: 'Mark Important', activeLabel: 'Unmark Important', style: UNDERLINE }
+  { label: 'Mark Important', activeLabel: 'Unmark Important', style: IMPORTANT }
 ];
 
 class DraftReflectionComponent extends Component {
@@ -90,7 +90,7 @@ function underlinedSnippets(raw) {
   let underlined = [];
   raw.blocks.forEach(block => {
     block.inlineStyleRanges.forEach(style => {
-      if (style.style === UNDERLINE) {
+      if (style.style === IMPORTANT) {
         underlined.push(block.text);
       }
     });
