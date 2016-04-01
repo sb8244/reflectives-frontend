@@ -3,9 +3,14 @@
 import React, { Component } from 'react';
 import {convertToRaw, convertFromRaw, Editor, EditorState, RichUtils, ContentState} from 'draft-js';
 import { stateToHTML } from 'draft-js-export-html';
+import InlineStyleControls from '../draft/InlineStyleControls';
 
 require('styles/reflection/DraftReflection.scss');
 require('draft-js/dist/Draft.css');
+
+const INLINE_STYLES = [
+  { label: 'Mark Important', activeLabel: 'Unmark Important', style: 'UNDERLINE' }
+];
 
 class DraftReflectionComponent extends Component {
   constructor(props) {
@@ -45,6 +50,15 @@ class DraftReflectionComponent extends Component {
     return false;
   }
 
+  toggleInlineStyle(inlineStyle) {
+    this.onChange(
+      RichUtils.toggleInlineStyle(
+        this.state.editorState,
+        inlineStyle
+      )
+    );
+  }
+
   render() {
     const {editorState} = this.state;
 
@@ -58,6 +72,9 @@ class DraftReflectionComponent extends Component {
 
     return (
       <div className={className}>
+        <InlineStyleControls inlineStyles={INLINE_STYLES}
+                             editorState={editorState}
+                             onToggle={this.toggleInlineStyle.bind(this)} />
         <Editor editorState={editorState}
                 onChange={this.onChange}
                 handleKeyCommand={this.handleKeyCommand.bind(this)}
