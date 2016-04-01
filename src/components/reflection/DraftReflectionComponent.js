@@ -8,8 +8,9 @@ import InlineStyleControls from '../draft/InlineStyleControls';
 require('styles/reflection/DraftReflection.scss');
 require('draft-js/dist/Draft.css');
 
+export const UNDERLINE = 'UNDERLINE';
 const INLINE_STYLES = [
-  { label: 'Mark Important', activeLabel: 'Unmark Important', style: 'UNDERLINE' }
+  { label: 'Mark Important', activeLabel: 'Unmark Important', style: UNDERLINE }
 ];
 
 class DraftReflectionComponent extends Component {
@@ -30,7 +31,8 @@ class DraftReflectionComponent extends Component {
     this.onChange = (editorState) => {
       let raw = convertToRaw(editorState.getCurrentContent());
       let styled = stateToHTML(editorState.getCurrentContent());
-      props.onChange({ raw, styled });
+      let underlined = underlinedSnippets(raw);
+      props.onChange({ raw, styled, underlined: underlined.length });
       return this.setState({editorState})
     };
   }
@@ -82,6 +84,19 @@ class DraftReflectionComponent extends Component {
       </div>
     );
   }
+}
+
+function underlinedSnippets(raw) {
+  let underlined = [];
+  raw.blocks.forEach(block => {
+    block.inlineStyleRanges.forEach(style => {
+      if (style.style === UNDERLINE) {
+        underlined.push(block.text);
+      }
+    });
+  });
+
+  return underlined;
 }
 
 DraftReflectionComponent.displayName = 'ReflectionDraftReflectionComponent';

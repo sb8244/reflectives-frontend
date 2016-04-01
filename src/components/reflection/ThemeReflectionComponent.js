@@ -31,6 +31,11 @@ let ThemeReflectionComponent = (props) => {
 
         <div className='reflection-themes--button-wrapper'>
           { actionButton(props.nextThemeUrl, props) }
+          <small className='reflection-themes--important-snippets'
+                 data-tip='These snippets will be highlighted in your reminder email.'
+                 data-offset={JSON.stringify({ top: '-7px', right: '50%' })}>
+            { props.theme.get('importantCount') || 0 } important snippets.
+          </small>
         </div>
       </div>
     </div>
@@ -38,8 +43,8 @@ let ThemeReflectionComponent = (props) => {
 }
 
 function updateThemeDraftEditor(props) {
-  return function({ raw, styled }) {
-    props.actions.updateThemeDraftEditor(props.themeIndex, raw, styled);
+  return function({ raw, styled, underlined }) {
+    props.actions.updateThemeDraftEditor(props.themeIndex, raw, styled, underlined);
   }
 }
 

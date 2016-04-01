@@ -52,7 +52,7 @@ export default function(state = initialState, action) {
 
     case 'UPDATE_THEME_DRAFT_EDITOR': {
       let theme = state.get('items').get(action.index);
-      let newTheme = theme.set('contentState', action.contentState).set('htmlReflection', action.html);
+      let newTheme = theme.set('contentState', action.contentState).set('htmlReflection', action.html).set('importantCount', action.underlined);
       state = state.set('items', state.get('items').set(action.index, newTheme));
       break;
     }
