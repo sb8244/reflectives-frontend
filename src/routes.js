@@ -49,25 +49,7 @@ function submitAuth(nextState, replace, callback) {
   var token, uid;
   ({ token, uid } = nextState.location.query);
 
-  let authPromise = new Promise((resolve, reject) => {
-    if (token && uid) {
-      let data = new FormData();
-      data.append('token', token);
-      data.append('uid', uid);
-      fetch(`http://localhost:8001/auth?token=${token}&uid=${uid}`).then(response => {
-        if (response.status === 200) {
-          response.json().then(json => {
-            auth.setToken(json.token);
-            resolve();
-          });
-        } else { reject(); }
-      }).catch(reject);
-    } else {
-      reject();
-    }
-  });
-
-  authPromise.then(() => {
+  auth.submitAuth(token, uid).then(() => {
     replace('/');
     callback();
   }).catch(() => {
