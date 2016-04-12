@@ -17,6 +17,7 @@ let persistConfig = {
     });
 
     delete serializableCollection.remindAt;
+    delete serializableCollection.auth;
 
     return JSON.stringify(serializableCollection);
   },
