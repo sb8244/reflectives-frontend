@@ -17,10 +17,10 @@ export function verifyAuth(token, uid) {
     if (token && uid) {
       fetch(`http://localhost:8001/auth?token=${token}&uid=${uid}`).then(response => {
         if (response.status === 200) {
-          response.json().then(json => {
-            resolve(json.token);
-          });
-        } else { reject(); }
+          return response.json().then(json => resolve(json.token));
+        }
+
+        genericResponseHandler(response, resolve, reject);
       }).catch(reject);
     } else {
       reject();
@@ -36,11 +36,20 @@ export function submitReflections(reflections) {
       body: JSON.stringify({ reflections })
     }).then((response) => {
       if (response.status === 200) {
-        response.json().then(json => resolve(json));
-      } else if (response.status === 422) {
-        response.json().then(json => reject(json));
+        return response.json().then(json => resolve(json));
       }
-      else { reject({}); }
+
+      genericResponseHandler(response, resolve, reject);
     }).catch(reject);
   });
+}
+
+function genericResponseHandler(response, resolve, reject) {
+  if (response.status === 422) {
+    return response.json().then(json => reject(json));
+  } else if (response.status === 401) {
+    window.location.href = '/';
+  }
+
+  reject({});
 }
