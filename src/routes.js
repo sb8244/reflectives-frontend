@@ -2,7 +2,8 @@ import WiredThemesForm from './containers/WiredThemesForm';
 import WiredThemeReflectionComponent from './containers/WiredThemeReflectionComponent';
 import WiredFinishComponent from './containers/WiredFinishComponent';
 import WiredLoginComponent from './containers/WiredLoginComponent';
-import {auth} from './auth';
+import { auth } from './auth';
+import { verifyAuth } from './requests';
 
 export const routeConfig = [
   {
@@ -49,7 +50,8 @@ function submitAuth(nextState, replace, callback) {
   var token, uid;
   ({ token, uid } = nextState.location.query);
 
-  auth.submitAuth(token, uid).then(() => {
+  verifyAuth(token, uid).then((token) => {
+    auth.setToken(token);
     replace('/');
     callback();
   }).catch(() => {
