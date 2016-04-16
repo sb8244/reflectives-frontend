@@ -71,7 +71,7 @@ function actionButton(nextThemeUrl, props) {
         Next Topic
       </a>
     );
-  } else if(props.submittingTheme === false) {
+  } else if(!props.submittingTheme) {
     return (
       <button className='secondary hollow button large no-mb' onClick={persistReflection(props.actions.endThemeTimer, props.actions.persistReflection, props)}>
         Finish

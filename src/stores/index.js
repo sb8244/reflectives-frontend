@@ -18,6 +18,7 @@ let persistConfig = {
 
     delete serializableCollection.remindAt;
     delete serializableCollection.auth;
+    delete serializableCollection.themes.submitting;
 
     return JSON.stringify(serializableCollection);
   },
