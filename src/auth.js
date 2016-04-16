@@ -7,6 +7,10 @@ export const auth = {
     localStorage.token = token;
   },
 
+  getToken: function() {
+    return localStorage.token;
+  },
+
   logout: function() {
     delete localStorage.token;
   }

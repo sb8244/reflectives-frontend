@@ -1,3 +1,5 @@
+import { submitReflections } from '../../requests';
+
 module.exports = function() {
   return function(dispatch, getState) {
     let themes = getState().themes.get('items');
@@ -5,11 +7,10 @@ module.exports = function() {
 
     dispatch({ type: 'PERSIST_THEME_START', serverData });
 
-    setTimeout(function() {
-      let response = Object.assign({}, serverData, { id: 1 });
+    submitReflections(serverData).then((collection) => {
       dispatch({ type: 'PERSIST_THEME_SUCCESS' });
-      window.location.href = '#/finish/' + response.id;
-    }, 1000);
+      window.location.href = '#/finish/' + collection.id;
+    });
   };
 }
 
@@ -18,7 +19,7 @@ function getServerData(themes) {
     return {
       name: theme.get('name'),
       html: theme.get('htmlReflection'),
-      seconds_of_writing: theme.get('secondsOfWriting')
+      secondsOfWriting: theme.get('secondsOfWriting')
     };
   }).toJS();
 }
