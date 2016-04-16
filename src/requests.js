@@ -37,8 +37,10 @@ export function submitReflections(reflections) {
     }).then((response) => {
       if (response.status === 200) {
         response.json().then(json => resolve(json));
+      } else if (response.status === 422) {
+        response.json().then(json => reject(json));
       }
-      else { reject(); }
+      else { reject({}); }
     }).catch(reject);
   });
 }

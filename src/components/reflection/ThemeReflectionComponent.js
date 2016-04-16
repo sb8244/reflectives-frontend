@@ -29,6 +29,8 @@ let ThemeReflectionComponent = (props) => {
                                   contentState={ props.theme.get('contentState') }
                                   onChange={updateThemeDraftEditor(props)} />
 
+        { messageAlert(props, 'SUBMIT_REFLECTIONS') }
+
         <div className='reflection-themes--button-wrapper'>
           { previousButton(props.previousThemeUrl) }
           { actionButton(props.nextThemeUrl, props) }
@@ -52,6 +54,14 @@ function updateThemeDraftEditor(props) {
 function completedCount(props) {
   let seconds = props.theme.get('secondsOfWriting') || 0;
   return Math.min(Math.floor(seconds/SECONDS_PER_CIRCLE) + 1, NUMBER_OF_CIRCLES);
+}
+
+function messageAlert(props, key) {
+  if (props.messages.get(key)) {
+    return (<div className='callout alert'>
+      { props.messages.get(key) }
+    </div>);
+  }
 }
 
 function previousButton(previousThemeUrl) {

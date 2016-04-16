@@ -38,7 +38,8 @@ class WiredThemeReflectionComponent extends Component {
                                 themeIndex={themeIndex(this.props)}
                                 nextThemeUrl={nextThemeUrl(this.props)}
                                 previousThemeUrl={previousThemeUrl(this.props)}
-                                actions={ this.props.actions } />
+                                actions={ this.props.actions }
+                                messages={ this.props.messages } />
     );
   }
 }
@@ -74,7 +75,7 @@ function previousThemeUrl(props) {
 }
 
 function mapStateToProps(state) {
-  return { submittingTheme: state.themes.get('submitting'), themes: state.themes.get('items') };
+  return { submittingTheme: state.themes.get('submitting'), themes: state.themes.get('items'), messages: state.messages };
 }
 
 function mapDispatchToProps(dispatch) {

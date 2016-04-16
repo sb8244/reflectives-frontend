@@ -8,14 +8,16 @@
  */
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
-import themes from '../reducers/themes';
-import remindAt from '../reducers/remindAt';
-import auth from '../reducers/auth';
+import themes from './themes';
+import remindAt from './remindAt';
+import auth from './auth';
+import messages from './messages';
 /* Populated by react-webpack-redux:reducer */
 const reducers = {
   form: formReducer,
   themes,
   remindAt,
-  auth
+  auth,
+  messages
 };
 module.exports = combineReducers(reducers);

@@ -32,6 +32,11 @@ class DraftReflectionComponent extends Component {
       let raw = convertToRaw(editorState.getCurrentContent());
       let styled = stateToHTML(editorState.getCurrentContent());
       let underlined = underlinedSnippets(raw);
+
+      if (raw.blocks.length === 1 && !raw.blocks[0].text) {
+        styled = undefined;
+      }
+
       props.onChange({ raw, styled, underlined: underlined.length });
       return this.setState({editorState})
     };

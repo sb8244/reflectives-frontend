@@ -19,6 +19,7 @@ let persistConfig = {
     delete serializableCollection.remindAt;
     delete serializableCollection.auth;
     delete serializableCollection.themes.submitting;
+    delete serializableCollection.messages;
 
     return JSON.stringify(serializableCollection);
   },

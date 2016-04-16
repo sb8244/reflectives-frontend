@@ -1,9 +1,10 @@
 const Immutable = require('immutable');
 const initialState = Immutable.Map({
   items: Immutable.List(),
-  submitting: false
+  submitting: THEME_SUBMITTING_INITIAL
 });
 
+export const THEME_SUBMITTING_INITIAL = false;
 export const THEME_SUBMITTING = 'submitting';
 export const THEME_SUBMITTING_SUCCESS = 'success';
 
@@ -64,6 +65,11 @@ export default function(state = initialState, action) {
 
     case 'PERSIST_THEME_SUCCESS': {
       state = state.set('submitting', THEME_SUBMITTING_SUCCESS);
+      break;
+    }
+
+    case 'PERSIST_THEME_FAILED': {
+      state = state.set('submitting', THEME_SUBMITTING_INITIAL);
       break;
     }
   }
