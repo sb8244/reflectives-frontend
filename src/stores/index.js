@@ -32,6 +32,10 @@ let persistConfig = {
       data.themes = Immutable.fromJS(data.themes);
     }
 
+    if (data.reflectionCollections) {
+      data.reflectionCollections = Immutable.fromJS(data.reflectionCollections);
+    }
+
     return data;
   }
 };

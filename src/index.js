@@ -7,11 +7,15 @@ import { Router, hashHistory } from 'react-router'
 import { routeConfig } from './routes.js';
 import ReactTooltip from 'react-tooltip';
 
+import loadReflectionCollections from './actions/reflectionCollections/load';
+
 const store = configureStore();
 
 require('normalize.css');
 require('font-awesome/css/font-awesome.css');
 require('styles/App.scss');
+
+store.dispatch(loadReflectionCollections());
 
 render(
   <div>

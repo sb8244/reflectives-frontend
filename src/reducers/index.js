@@ -12,12 +12,14 @@ import themes from './themes';
 import remindAt from './remindAt';
 import auth from './auth';
 import messages from './messages';
+import reflectionCollections from './reflectionCollections';
 /* Populated by react-webpack-redux:reducer */
 const reducers = {
   form: formReducer,
   themes,
   remindAt,
   auth,
-  messages
+  messages,
+  reflectionCollections
 };
 module.exports = combineReducers(reducers);
