@@ -6,7 +6,7 @@ export const initialState = Immutable.Map({
 export default function(state = initialState, { type, records }) {
   switch(type) {
     case 'LOAD_REFLECTION_COLLECTIONS': {
-      state = state.set('records', Immutable.List(records));
+      state = state.set('records', Immutable.fromJS(records));
       break;
     }
   }
