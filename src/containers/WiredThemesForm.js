@@ -7,7 +7,11 @@ import ThemesForm from '../components/reflection/ThemesForm';
 
 let WiredThemesForm = (props) => {
   return (
-    <ThemesForm {...props} />
+    <div className="row align-center">
+      <div className="medium-8 large-6 columns">
+        <ThemesForm {...props} />
+      </div>
+    </div>
   );
 };
 
