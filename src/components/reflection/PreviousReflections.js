@@ -14,10 +14,8 @@ let PreviousReflections = (props) => (
 
 function renderCollection(list) {
   return list.map((collection) => {
-    let size = collection.reflections.length;
-
     return <div key={collection.id}>
-      <h5 className='reflection-collection--header'>On { moment(collection.createdAt).format('MMM Do, YYYY') } - { size } reflections</h5>
+      <h5 className='reflection-collection--header'>On { moment(collection.createdAt).format('MMM Do, YYYY') }</h5>
       { collection.reflections.map((reflection) => renderReflection(reflection)) }
     </div>;
   });
