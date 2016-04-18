@@ -36,6 +36,10 @@ let persistConfig = {
       data.reflectionCollections = Immutable.fromJS(data.reflectionCollections);
     }
 
+    if (data.kvs) {
+      data.kvs = Immutable.fromJS(data.kvs);
+    }
+
     return data;
   }
 };

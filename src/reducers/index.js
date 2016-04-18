@@ -12,6 +12,7 @@ import themes from './themes';
 import remindAt from './remindAt';
 import auth from './auth';
 import messages from './messages';
+import kvs from './kvs';
 import reflectionCollections from './reflectionCollections';
 /* Populated by react-webpack-redux:reducer */
 const reducers = {
@@ -20,6 +21,7 @@ const reducers = {
   remindAt,
   auth,
   messages,
-  reflectionCollections
+  reflectionCollections,
+  kvs
 };
 module.exports = combineReducers(reducers);

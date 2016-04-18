@@ -24,13 +24,14 @@ function previousReflections(props) {
 }
 
 function mapStateToProps(state) {
-  const props = { themes: state.themes, reflectionCollections: state.reflectionCollections.get('records').toJS() };
+  const props = { themes: state.themes, reflectionCollections: state.reflectionCollections.get('records').toJS(), kvs: state.kvs };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
   const actions = {
-    removeTheme: require('../actions/themes/removeTheme.js')
+    removeTheme: require('../actions/themes/removeTheme.js'),
+    setKvp: require('../actions/setKvp.js')
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
