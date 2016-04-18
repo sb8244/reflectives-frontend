@@ -1,4 +1,5 @@
 const Immutable = require('immutable');
+
 export const initialState = Immutable.Map({
   records: Immutable.List()
 });
