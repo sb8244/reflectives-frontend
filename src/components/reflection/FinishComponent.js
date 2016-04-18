@@ -28,9 +28,9 @@ let FinishComponent = (props) => (
 
           <div className='small-4 small-offset-1'>
             <DateSelectionForm dates={next7Days()}
-                               buttonText={dateSelectionText(props)}
+                               buttonText='Coming Soon...'
                                onDateSelected={dateSelected(props)}
-                               disableSubmit={dateSelectionDisabled(props)} />
+                               disableSubmit={true} />
           </div>
         </div>
       </div>
